@@ -143,7 +143,7 @@ module.exports = require('machine').build({
     //  └─┘ ┴ ┴└─┴┘└┘└─┘  └─┘┴└─┴─┘
     // If the connection details were not supplied as a URL, make them into one.
     // This is required for the underlying driver in use.
-    if (!_.has(inputs.config, 'url')) {
+    if (!_.has(inputs.config, 'url') && !inputs.config.socket) {
       var url = 'postgres://';
       var port = inputs.config.port || '5432';
 
